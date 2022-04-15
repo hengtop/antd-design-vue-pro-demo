@@ -74,7 +74,7 @@ export default {
   mounted() {},
   methods: {
     handleSubmit() {
-      const { form, $router, $store } = this;
+      const { form, $router, $store, $route } = this;
       form.validateFields((err, values) => {
         if (!err) {
           console.log(values);
@@ -82,7 +82,12 @@ export default {
             type: "form/saveStepFormData",
             payload: values,
           });
-          $router.push("/form/step-form/confirm");
+          $router.push({
+            path:"/form/step-form/confirm",
+            query:{
+              ...$route.query
+            }
+          });
         }
       });
     },
@@ -93,5 +98,4 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
-</style>
+<style lang="less" scoped></style>

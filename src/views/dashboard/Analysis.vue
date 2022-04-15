@@ -1,8 +1,8 @@
 <template>
   <div class="">
     Analysis
-    {{$t('message')['app.dashboard.analysis.timeLabel']}}:
-     <a-date-picker />
+    {{ $t("message")["app.dashboard.analysis.timeLabel"] }}:
+    <a-date-picker />
     <chart :options="chartOptions" style="height: 400px" />
     <pre v-highlightjs="chartCode"><code class="html"></code></pre>
   </div>
@@ -12,7 +12,7 @@
 import chart from "@/components/Chart";
 import { chartOptions } from "@/network/api/chart";
 //配置演示代码
-import chartCode from '!!raw-loader!../../components/Chart';
+import chartCode from "!!raw-loader!../../components/Chart";
 export default {
   name: "analysis",
   data() {
@@ -37,7 +37,7 @@ export default {
           },
         ],
       },
-      chartCode
+      chartCode,
     };
   },
   created() {},
@@ -49,7 +49,7 @@ export default {
     async getChartOption() {
       const res = await chartOptions(12345);
       this.chartOptions.series[0].data = res.data;
-       this.chartOptions = { ...this.chartOptions };
+      this.chartOptions = { ...this.chartOptions };
     },
   },
   components: {
@@ -58,5 +58,4 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
-</style>
+<style lang="less" scoped></style>

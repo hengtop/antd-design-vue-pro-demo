@@ -6,7 +6,7 @@
         :labelCol="formItemLayout.labelCol"
         :wrapper-col="formItemLayout.wrapperCol"
       >
-       {{step.payAcount}}
+        {{ step.payAcount }}
       </a-form-item>
       <a-form-item
         label="密码"
@@ -54,24 +54,23 @@ export default {
   mounted() {},
   methods: {
     handleSubmit() {
-      const { form, $store, step } = this;
+      const { form, $store, step, $route } = this;
       form.validateFields((err, values) => {
         if (!err) {
           console.log(values);
           $store.dispatch({
             type: "form/submitStepForm",
-            payload: {...step, ...values},
+            payload: {...step, ...values, query:$route.query},
           });
         }
       });
     },
     onPrev(){
-      this.$router.back();    
+      this.$router.back();
     }
   },
   components: {},
 };
 </script>
 
-<style lang="less" scoped>
-</style>
+<style lang="less" scoped></style>

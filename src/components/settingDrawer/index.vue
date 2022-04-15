@@ -68,5 +68,5 @@ export default {
 };
 </script>
 
-<style lang="less" src="./index.less">
+<style lang="less" src="../../styles/theme/index.less">
 </style>

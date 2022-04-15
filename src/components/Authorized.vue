@@ -8,7 +8,7 @@ export default {
     authority:{
       type:Array,
       required:true
-    }
+    } 
   },
   render(h, context) {
     const { props, scopedSlots } = context;

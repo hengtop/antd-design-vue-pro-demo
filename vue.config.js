@@ -1,18 +1,3 @@
-const path = require('path');
-const webpack = require('webpack');
-const AntDesignThemePlugin = require('antd-theme-webpack-plugin');
-const options = {
-  antDir: path.join(__dirname, './node_modules/ant-design-vue'),
-  stylesDir: path.join(__dirname, "./src/styles/theme"), //主题文件所在文件夹
-  varFile: path.join(__dirname, './node_modules/ant-design-vue/lib/style/themes/default.less'),
-  mainLessFile: "",
-  outputFilePath: path.join(__dirname, "./public/color.less"), //提取的less文件输出到什么地方
-  themeVariables: ["@primary-color"], //要改变的主题变量
-  indexFileName: "./public/index.html", // index.html所在位置
-  generateOnce: false
-}
-
-const themePlugin = new AntDesignThemePlugin(options);
 
 module.exports = {
   css: {
@@ -26,7 +11,7 @@ module.exports = {
     }
   },
   configureWebpack: {
-    plugins: [themePlugin, new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),]
+    plugins: []
   },
   //这里处理后引入的svg会处理成函数式组件
   chainWebpack: config => {
@@ -60,5 +45,8 @@ module.exports = {
         },
       },
     },
+  
   },
+    //设置elsint关闭
+    lintOnSave: false
 }
